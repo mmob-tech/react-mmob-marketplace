@@ -1,0 +1,43 @@
+{
+  "name": "@mmob/react-mmob-marketplace",
+  "version": "0.0.1",
+  "description": "MMOB Marketplace react component",
+  "main": "./lib/cjs/index.js",
+  "module": "./lib/esm/index.js",
+  "types": "./lib/esm/index.d.ts",
+  "scripts": {
+    "prepublish": "npm run build",
+    "build": "npm run build:esm && npm run build:cjs",
+    "build:esm": "tsc",
+    "build:cjs": "tsc --module commonjs --outDir lib/cjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mmob-tech/react-mmob-marketplace.git"
+  },
+  "keywords": [
+    "React",
+    "Marketplace",
+    "MMOB"
+  ],
+  "author": "MMOB",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mmob-tech/react-mmob-marketplace/issues"
+  },
+  "homepage": "https://github.com/mmob-tech/react-mmob-marketplace#readme",
+  "devDependencies": {
+    "@types/react": "^17.0.18",
+    "@types/react-dom": "^17.0.9",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "typescript": "^4.3.5"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0"
+  },
+  "files": [
+    "/lib"
+  ]
+}
