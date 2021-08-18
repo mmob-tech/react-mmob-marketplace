@@ -2,7 +2,21 @@ import React, { useEffect, useRef } from 'react';
 
 const IFRAME_NAME = 'mmob_marketplace_target_iframe';
 
-type MMOBCustomerInfo = Record<string, string>;
+type MMOBCustomerInfo = {
+  email: string;
+  first_name?: string;
+  surname?: string;
+  gender?: 'male' | 'female';
+  title?: string;
+  building_number?: string;
+  address_1?: string;
+  town_city?: string;
+  postcode?: string;
+  broadbandProvider?: string;
+  broadbandPpm?: string;
+  broadbandDownSpeed?: string;
+  dob?: string;
+};
 type MMOBMarketplaceProps = {
   customerInfo: MMOBCustomerInfo;
   cpId: string;
