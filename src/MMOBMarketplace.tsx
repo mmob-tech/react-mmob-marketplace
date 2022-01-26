@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 
 const IFRAME_NAME = 'mmob_marketplace_target_iframe';
 
-type MMOBCustomerInfo = {
+export type MMOBCustomerInfo = {
   email: string;
   first_name?: string;
   surname?: string;
