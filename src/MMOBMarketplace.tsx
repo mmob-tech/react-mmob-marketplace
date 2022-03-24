@@ -33,6 +33,7 @@ export type MMOBMarketplacePageType =
 type MMOBMarketplaceProps = {
   customerInfo: MMOBCustomerInfo;
   cpId: string;
+  cpDeploymentId: string;
   page: MMOBMarketplacePageType;
   marketplaceUrl: string;
 };
@@ -59,6 +60,7 @@ const MMOBMarketplaceForm = ({
   customerInfo,
   marketplaceUrl,
   cpId,
+  cpDeploymentId,
   page,
 }: MMOBMarketplaceFormProps) => {
   const url = `${marketplaceUrl}/boot`;
@@ -79,6 +81,7 @@ const MMOBMarketplaceForm = ({
         return <input type="hidden" name={key} value={value} key={key} />;
       })}
       <input type="hidden" name="cp_id" value={cpId} />
+      <input type="hidden" name="cp_deployment_id" value={cpDeploymentId} />
       <input type="hidden" name="page" value={page} />
     </form>
   );
