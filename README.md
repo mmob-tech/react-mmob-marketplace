@@ -72,6 +72,7 @@ const Marketplace = () =>
         customerInfo={customerInfo}
         cpId="cp_xxxxx"
         page="broadband"
+        locale="en_GB"
         marketplaceUrl="https://marketplace.mmobstars.com"
       />
   )
@@ -86,3 +87,4 @@ const Marketplace = () =>
 | `cpId`           | Your company MMOB identifier                                                                                                                                                                                                                                                                                                                                                               |
 | `page`           | What page of the marketplace should the user see                                                                                                                                                                                                                                                                                                                                           |
 | `marketplaceUrl` | The URL where the marketplace will be operated (defined on the CNAME section)                                                                                                                                                                                                                                                                                                              |
+| `locale`         | What is the preffered language of the user                                                                                                                                                                                                                                                                                                                                                 |

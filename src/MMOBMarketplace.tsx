@@ -1,12 +1,12 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from 'react';
 
-const IFRAME_NAME = "mmob_marketplace_target_iframe";
+const IFRAME_NAME = 'mmob_marketplace_target_iframe';
 
 export type MMOBCustomerInfo = {
   email: string;
   first_name?: string;
   surname?: string;
-  gender?: "male" | "female";
+  gender?: 'male' | 'female';
   title?: string;
   building_number?: string;
   address_1?: string;
@@ -18,17 +18,17 @@ export type MMOBCustomerInfo = {
   dob?: string;
 };
 export type MMOBMarketplacePageType =
-  | "broadband"
-  | "marketplace"
-  | "pensionbee"
-  | "lending"
-  | "energy"
-  | "credit_cards"
-  | "stocks_shares"
-  | "mobile_phones"
-  | "mortgages"
-  | "uinsure"
-  | "cashback";
+  | 'broadband'
+  | 'marketplace'
+  | 'pensionbee'
+  | 'lending'
+  | 'energy'
+  | 'credit_cards'
+  | 'stocks_shares'
+  | 'mobile_phones'
+  | 'mortgages'
+  | 'uinsure'
+  | 'cashback';
 
 type MMOBMarketplaceProps = {
   customerInfo: MMOBCustomerInfo;
@@ -36,24 +36,25 @@ type MMOBMarketplaceProps = {
   cpDeploymentId: string;
   page: MMOBMarketplacePageType;
   marketplaceUrl: string;
+  locale?: string;
 };
 
 type MMOBMarketplaceFormProps = MMOBMarketplaceProps;
 
 const keys = [
-  "email",
-  "first_name",
-  "surname",
-  "gender",
-  "title",
-  "building_number",
-  "address_1",
-  "town_city",
-  "postcode",
-  "broadbandProvider",
-  "broadbandPpm",
-  "broadbandDownSpeed",
-  "dob",
+  'email',
+  'first_name',
+  'surname',
+  'gender',
+  'title',
+  'building_number',
+  'address_1',
+  'town_city',
+  'postcode',
+  'broadbandProvider',
+  'broadbandPpm',
+  'broadbandDownSpeed',
+  'dob',
 ];
 
 const MMOBMarketplaceForm = ({
@@ -62,6 +63,7 @@ const MMOBMarketplaceForm = ({
   cpId,
   cpDeploymentId,
   page,
+  locale,
 }: MMOBMarketplaceFormProps) => {
   const url = `${marketplaceUrl}/boot`;
   const iframeEl = useRef<HTMLFormElement>(null);
@@ -72,7 +74,7 @@ const MMOBMarketplaceForm = ({
     <form
       method="POST"
       action={url}
-      style={{ position: "absolute", top: "-10px", left: "-10px" }}
+      style={{ position: 'absolute', top: '-10px', left: '-10px' }}
       target={IFRAME_NAME}
       ref={iframeEl}
     >
@@ -83,17 +85,17 @@ const MMOBMarketplaceForm = ({
       <input type="hidden" name="cp_id" value={cpId} />
       <input type="hidden" name="cp_deployment_id" value={cpDeploymentId} />
       <input type="hidden" name="page" value={page} />
+      <input type="hidden" name="locale" value={locale} />
     </form>
   );
 };
 
 const MMOBMarketplace = (props: MMOBMarketplaceProps) => {
   useEffect(() => {
-    console.log("Build boot", props);
+    console.log('Build boot', props);
   }, []);
 
-  const marketplaceUrl =
-    props.marketplaceUrl || "https://marketplace.staging.mmob.com";
+  const marketplaceUrl = props.marketplaceUrl || 'https://marketplace.staging.mmob.com';
 
   const allow = "geolocation 'self' " + marketplaceUrl;
   return (
@@ -101,7 +103,7 @@ const MMOBMarketplace = (props: MMOBMarketplaceProps) => {
       <MMOBMarketplaceForm {...props} marketplaceUrl={marketplaceUrl} />
       <iframe
         name={IFRAME_NAME}
-        style={{ width: "100%", height: "100%", border: 0 }}
+        style={{ width: '100%', height: '100%', border: 0 }}
         allow={allow}
       />
     </>
