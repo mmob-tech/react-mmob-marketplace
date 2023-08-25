@@ -50,6 +50,13 @@ npm i @mmob/react-mmob-marketplace
 Once installed, add the React Component on your application. The component will take all the space assigned to it and display the marketplace in a secure way.
 
 ```ts
+/**
+ * Note: If you are not passing customer data from your app/website
+ *       you can pass an empty object to customerInfo:
+ *
+ *    eg: const customerInfo = {}
+ **/
+
 const Marketplace = () =>
    const customerInfo: MMOBCustomerInfo= {
      email: "sharon.jordan@example.com",
