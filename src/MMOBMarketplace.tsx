@@ -96,8 +96,13 @@ const MMOBMarketplace = (props: MMOBMarketplaceProps) => {
   }, []);
 
   const marketplaceUrl = props.marketplaceUrl || 'https://marketplace.staging.mmob.com';
+  const allow =
+    "geolocation 'self' " +
+    marketplaceUrl +
+    "clipboard-read; clipboard-write 'self' " +
+    marketplaceUrl +
+    "; fullscreen";
 
-  const allow = "geolocation 'self' " + marketplaceUrl;
   return (
     <>
       <MMOBMarketplaceForm {...props} marketplaceUrl={marketplaceUrl} />
