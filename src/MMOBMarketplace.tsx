@@ -64,7 +64,11 @@ const MMOBMarketplaceForm = ({
     >
       {Object.keys(customerInfo).map((key) => {
         const value = customerInfo[key];
-        return <input type="hidden" name={key} value={value} key={key} />;
+        if (value !== null && value !== undefined) {
+          return <input type="hidden" name={key} value={value} key={key} />;
+        } else {
+          return "";
+        }
       })}
       <input type="hidden" name="cp_id" value={cpId} />
       <input type="hidden" name="cp_deployment_id" value={cpDeploymentId} />
@@ -82,7 +86,13 @@ const MMOBMarketplace = (props: MMOBMarketplaceProps) => {
   const marketplaceUrl =
     props.marketplaceUrl || "https://marketplace.staging.mmob.com";
 
-  const allow = "geolocation 'self' " + marketplaceUrl;
+  const allow =
+    "geolocation 'self' " +
+    marketplaceUrl +
+    "clipboard-read; clipboard-write 'self' " +
+    marketplaceUrl +
+    "; fullscreen";
+
   return (
     <>
       <MMOBMarketplaceForm {...props} marketplaceUrl={marketplaceUrl} />
