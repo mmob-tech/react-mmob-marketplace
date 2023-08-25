@@ -1,6 +1,6 @@
 {
   "name": "@mmob/react-mmob-marketplace",
-  "version": "0.1.6",
+  "version": "0.2.1",
   "description": "MMOB Marketplace react component",
   "main": "./lib/cjs/MMOBMarketplace.js",
   "module": "./lib/esm/MMOBMarketplace.js",
