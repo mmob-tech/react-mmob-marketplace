@@ -37,6 +37,7 @@ type MMOBMarketplaceProps = {
   page: MMOBMarketplacePageType;
   marketplaceUrl: string;
   locale?: string;
+  signature?: string;
 };
 
 type MMOBMarketplaceFormProps = MMOBMarketplaceProps;
@@ -48,6 +49,7 @@ const MMOBMarketplaceForm = ({
   cpDeploymentId,
   page,
   locale,
+  signature,
 }: MMOBMarketplaceFormProps) => {
   const url = `${marketplaceUrl}/boot`;
   const iframeEl = useRef<HTMLFormElement>(null);
@@ -74,6 +76,7 @@ const MMOBMarketplaceForm = ({
       <input type="hidden" name="cp_deployment_id" value={cpDeploymentId} />
       <input type="hidden" name="page" value={page} />
       {locale ? <input type="hidden" name="locale" value={locale} /> : ""}
+      {signature ? <input type="hidden" name="signature" value={signature} /> : ""}
     </form>
   );
 };
@@ -83,8 +86,7 @@ const MMOBMarketplace = (props: MMOBMarketplaceProps) => {
     console.log("Build boot", props);
   }, []);
 
-  const marketplaceUrl =
-    props.marketplaceUrl || "https://marketplace.staging.mmob.com";
+  const marketplaceUrl = props.marketplaceUrl || "https://marketplace.staging.mmob.com";
 
   const allow =
     "geolocation 'self' " +
