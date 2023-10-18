@@ -81,6 +81,7 @@ const Marketplace = () =>
         page="broadband"
         locale="en_GB"
         marketplaceUrl="https://marketplace.mmobstars.com"
+        signature="xxxxxxx"
       />
   )
 }
@@ -94,4 +95,5 @@ const Marketplace = () =>
 | `cpId`           | Your company MMOB identifier                                                                                                                                                                                                                                                                                                                                                               |
 | `page`           | What page of the marketplace should the user see                                                                                                                                                                                                                                                                                                                                           |
 | `marketplaceUrl` | The URL where the marketplace will be operated (defined on the CNAME section)                                                                                                                                                                                                                                                                                                              |
-| `locale`         | What is the preffered language of the user                                                                                                                                                                                                                                                                                                                                                 |
+| `locale`         | What is the preferred language of the user                                                                                                                                                                                                                                                                                                                                                 |
+| `signature`      | For high secruity feature (if secure identity is configured)                                                                                                                                                                                                                                                                                                                               |
